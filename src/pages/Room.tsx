@@ -1,4 +1,6 @@
 import logoImg from "../assets/images/logo.svg";
+import likeImg from "../assets/images/like.svg";
+
 import { Button } from "../components/Button";
 
 import { useParams } from "react-router-dom";
@@ -109,34 +111,50 @@ export function Room() {
           {questions && <span>{questions.length} pergunta(s)</span>}
         </div>
 
-        <div>
-          <form onSubmit={handleSendQuestion}>
-            <textarea
-              placeholder="O que você quer perguntar?"
-              onChange={(e) => setNewQuestion(e.target.value)}
-              value={newQuestion}
-            />
+        <form onSubmit={handleSendQuestion}>
+          <textarea
+            placeholder="O que você quer perguntar?"
+            onChange={(e) => setNewQuestion(e.target.value)}
+            value={newQuestion}
+          />
 
-            <div className="form-footer">
-              {!user ? (
-                <span>
-                  Para enviar uma pergunta, <button>faça seu login</button>
-                </span>
-              ) : (
-                <span className="user-info">
-                  <img src={user.avatar} alt={user.name}></img>
-                  <span>{user.name}</span>
-                </span>
-              )}
+          <div className="form-footer">
+            {!user ? (
+              <span>
+                Para enviar uma pergunta, <button>faça seu login</button>
+              </span>
+            ) : (
+              <span className="user-info">
+                <img src={user.avatar} alt={user.name}></img>
+                <span>{user.name}</span>
+              </span>
+            )}
 
-              <Button type="submit" disabled={!user}>
-                Enviar Pergunta
-              </Button>
+            <Button type="submit" disabled={!user}>
+              Enviar Pergunta
+            </Button>
+          </div>
+        </form>
+
+        {/* {JSON.stringify(questions)} */}
+
+        {questions &&
+          questions.map((key, value) => (
+            <div className="question-item">
+              <div className="content">{key.content}</div>
+
+              <div className="footer">
+                <div className="author">
+                  <img src={key.author.avatar} alt={key.author.name} />
+                  {key.author.name}
+                </div>
+
+                <div className="options">
+                  16 <img src={likeImg} alt="Like" />
+                </div>
+              </div>
             </div>
-          </form>
-        </div>
-
-        <div>{JSON.stringify(questions)}</div>
+          ))}
       </main>
     </div>
   );
