@@ -1,0 +1,48 @@
+.question-item {
+  background-color: #fff;
+
+  margin-top: 10px;
+
+  padding: 10px;
+  border-radius: 15px;
+
+  display: flex;
+  flex-direction: column;
+
+  .content {
+    display: flex;
+    margin: 15px;
+  }
+
+  .footer {
+    display: flex;
+    margin: 15px;
+
+    justify-content: space-between;
+
+    .options {
+      align-items: center;
+      display: flex;
+      color: #737380;
+      font-family: "Poppins", sans-serif;
+
+      img {
+        margin: 0px 8px;
+        cursor: pointer;
+      }
+    }
+    .author {
+      display: flex;
+      align-items: center;
+      color: #737380;
+      font-size: 14px;
+
+      img {
+        width: 36px;
+        height: 36px;
+        margin-right: 10px;
+        border-radius: 50%;
+      }
+    }
+  }
+}

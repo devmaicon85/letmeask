@@ -1,5 +1,4 @@
 import logoImg from "../assets/images/logo.svg";
-import likeImg from "../assets/images/like.svg";
 
 import { Button } from "../components/Button";
 
@@ -11,6 +10,8 @@ import { RoomCode } from "../components/RoomCode";
 import { FormEvent, useEffect, useState } from "react";
 import { useAuth } from "../hooks/useAuth";
 import { database } from "../services/firebase";
+
+import { Question } from "../components/Question";
 
 type Question = {
   id: string;
@@ -140,20 +141,7 @@ export function Room() {
 
         {questions &&
           questions.map((key, value) => (
-            <div className="question-item">
-              <div className="content">{key.content}</div>
-
-              <div className="footer">
-                <div className="author">
-                  <img src={key.author.avatar} alt={key.author.name} />
-                  {key.author.name}
-                </div>
-
-                <div className="options">
-                  16 <img src={likeImg} alt="Like" />
-                </div>
-              </div>
-            </div>
+            <Question content={key.content} author={key.author.name} avatar={key.author.avatar} />
           ))}
       </main>
     </div>
