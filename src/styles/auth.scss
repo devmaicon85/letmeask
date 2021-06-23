@@ -49,9 +49,18 @@ main {
     align-items: stretch;
     text-align: center;
 
+
     > img {
         align-self: center;
+        
     }
+
+    .avatar{
+      border-radius: 50%;
+      margin-top: 20px;
+    }
+
+    
 
     h2 {
         font-size: 24px;
