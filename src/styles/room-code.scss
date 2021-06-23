@@ -9,12 +9,21 @@
 
   display: flex;
 
+
+  .copied{
+    color:#fff;
+    font-size: 13px;
+  }
+
   div {
     background-color: #835afd;
     padding: 0 12px;
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 100%;
+   
+   
   }
 
   span {
