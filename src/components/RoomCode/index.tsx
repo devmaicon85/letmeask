@@ -1,5 +1,6 @@
 import { useState } from "react";
 import copyImg from "../../assets/images/copy.svg";
+import checkImg from "../../assets/images/check.svg";
 import "./styles.scss";
 
 type RoomCodeProps = {
@@ -16,8 +17,7 @@ export function RoomCode(props: RoomCodeProps) {
   return (
     <button className="room-code" onClick={copyRoomCodeToClipboard}>
       <div>
-        <img src={copyImg} alt="Copiar código"></img>
-        {copied && <div className="copied"></div>}
+        {!copied ? <img src={copyImg} alt="Copiar Código"></img> : <img src={checkImg} alt="Código Copiado"></img>}
       </div>
       <span>Sala #{props.code}</span>
     </button>

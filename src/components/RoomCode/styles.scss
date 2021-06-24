@@ -6,19 +6,15 @@
   background-color: #fff;
   border: 1px solid #85828d;
   cursor: pointer;
-
   display: flex;
 
 
+  img{
+    filter: invert(0%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(1000%) contrast(1000%);
+  }
 
   div {
     background-color: #835afd;
-
-    
-  .copied{
-    background-color: #e559f9;
-
-  }
 
     padding: 0 12px;
     display: flex;
