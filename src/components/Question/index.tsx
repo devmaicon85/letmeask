@@ -14,10 +14,10 @@ type QuestionProps = {
 export function Question({content,author}: QuestionProps) {
   return (
     <div className="question-item">
-      <div className="content">{content}</div>
+      <p>{content}</p>
 
-      <div className="footer">
-        <div className="author">
+      <footer>
+        <div className="user-info">
           <img src={author.avatar} alt={author.name} />
           {author.name}
         </div>
@@ -25,7 +25,7 @@ export function Question({content,author}: QuestionProps) {
         <div className="options">
           16 <img src={likeImg} alt="Like" />
         </div>
-      </div>
+      </footer>
     </div>
   );
 }

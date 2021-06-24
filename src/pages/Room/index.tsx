@@ -12,7 +12,6 @@ import { database } from "../../services/firebase";
 
 import { useAuth } from "../../hooks/useAuth";
 
-
 type QuestionType = {
   id: string;
   author: {
@@ -138,10 +137,9 @@ export function Room() {
         </form>
 
         {/* {JSON.stringify(questions)} */}
-
         {questions &&
-          questions.map((key, value) => (
-            <Question key={key.id} content={key.content} author={key.author} />
+          questions.map((question) => (
+            <Question key={question.id} content={question.content} author={question.author} />
           ))}
       </main>
     </div>

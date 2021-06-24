@@ -1,13 +1,29 @@
-*{
-    margin:0;
-    padding: 0;
-    box-sizing: border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
 }
-body{
-    background: #f8f8f8;
-    color:#29292e;
+body {
+  background: #f8f8f8;
+  color: #29292e;
+  margin-bottom: 40px;
+
 }
 
-body, input,button, textarea{
-    font: 400 16px 'Roboto', sans-serif;
+body,
+input,
+button,
+textarea {
+  font: 400 16px "Roboto", sans-serif;
+}
+
+input,
+textarea {
+  border: 1px solid #835afd !important;
+  outline: 0;
+
+  &:hover {
+    border: 1px solid #e559f9 !important;
+  }
 }

@@ -9,9 +9,15 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      flex-wrap: wrap;
 
-      > img {
-        max-height: 45px;
+      img {
+        max-height: 75px;
+        margin: 10px;
+      }
+
+      @media (max-width: 632px) {
+        justify-content: center;
       }
     }
   }
@@ -20,8 +26,14 @@
     max-width: 800px;
     margin: 0 auto;
 
+    @media (max-width: 632px) {
+      justify-content: center;
+      margin-left: 20px;
+      margin-right: 20px;
+    }
+
     .room-title {
-      margin: 32px 0 24px;
+      margin: 32px 0px 24px;
       display: flex;
       align-items: center;
 
@@ -34,11 +46,12 @@
       span {
         margin-left: 16px;
         background: #e559f9;
-        border-radius: 9999px;
+        border-radius: 999px;
         padding: 8px 16px;
         color: #fff;
         font-weight: 500;
         font-size: 14px;
+        text-align: center;
       }
     }
 
@@ -59,7 +72,7 @@
         justify-content: space-between;
         align-items: center;
         margin-top: 16px;
-        margin-bottom: 36px;
+        margin-bottom: 30px;
 
         .user-info {
           display: flex;
@@ -96,7 +109,5 @@
         }
       }
     }
-
-    
   }
 }
