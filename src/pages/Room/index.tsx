@@ -1,19 +1,19 @@
-import logoImg from "../assets/images/logo.svg";
-
-import { Button } from "../components/Button";
-
+import { FormEvent, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
-import "../styles/rooms.scss";
+import logoImg from "../../assets/images/logo.svg";
+import "./styles.scss";
 
-import { RoomCode } from "../components/RoomCode";
-import { FormEvent, useEffect, useState } from "react";
-import { useAuth } from "../hooks/useAuth";
-import { database } from "../services/firebase";
+import { RoomCode } from "../../components/RoomCode";
+import { Button } from "../../components/Button";
+import { Question } from "../../components/Question";
 
-import { Question } from "../components/Question";
+import { database } from "../../services/firebase";
 
-type Question = {
+import { useAuth } from "../../hooks/useAuth";
+
+
+type QuestionType = {
   id: string;
   author: {
     name: string;
@@ -45,7 +45,7 @@ export function Room() {
   const params = useParams<RoomParams>();
   const roomId = params.id;
   const [newQuestion, setNewQuestion] = useState("");
-  const [questions, setQuestions] = useState<Question[]>([]);
+  const [questions, setQuestions] = useState<QuestionType[]>([]);
   const [title, setTitle] = useState("");
 
   useEffect(() => {
@@ -141,7 +141,7 @@ export function Room() {
 
         {questions &&
           questions.map((key, value) => (
-            <Question content={key.content} author={key.author.name} avatar={key.author.avatar} />
+            <Question key={key.id} content={key.content} author={key.author} />
           ))}
       </main>
     </div>
