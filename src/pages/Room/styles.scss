@@ -1,7 +1,10 @@
 #page-room {
+
+  
   header {
     padding: 24px;
-    border-bottom: 1px solid #e2e2e2;
+    border-bottom: 5px solid var(--secundary);
+    background-color: var(--primary);
 
     .content {
       max-width: 1120px;
@@ -26,6 +29,8 @@
       img {
         max-height: 75px;
         margin: 10px;
+        filter: brightness(1000%) contrast(1000%);
+      
       }
     }
   }
