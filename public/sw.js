@@ -20,7 +20,7 @@ this.addEventListener("fetch", (event) => {
             event.waitUntil(
                 this.registration.showNotification("modeNet", {
                     body: "Offline",
-                    icon: `/logo192.png`
+                    icon: `/android-chrome-192x192.png`
                 })
             )
         }
