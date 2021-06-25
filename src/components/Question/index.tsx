@@ -24,15 +24,34 @@ type QuestionType = {
 
 type QuestionProps = {
   question: QuestionType;
+  checkIsAdmin: boolean;
   roomId: string;
 };
 
-export function Question({ question, roomId }: QuestionProps) {
+export function Question({ question, checkIsAdmin, roomId }: QuestionProps) {
   const { user } = useAuth();
+
+  async function handleCheckQuestion(questionId: string) {
+    if (user?.id === undefined) {
+      return alert("Você precisa estar logado!");
+    }
+    await database.ref(`rooms/${roomId}/questions/${questionId}`).update({
+      isAnswered: true
+    });
+  }
+
+  async function handleHighlightQuestion(questionId: string) {
+    if (user?.id === undefined) {
+      return alert("Você precisa estar logado!");
+    }
+    await database.ref(`rooms/${roomId}/questions/${questionId}`).update({
+      isHighlighted: true
+    });
+  }
 
   async function handleDeleteQuestion(questionId: string) {
     if (user?.id === undefined) {
-      return alert("Você precisa estar logado para dar like");
+      return alert("Você precisa estar logado!");
     }
 
     if (window.confirm("Deseja mesmo excluir essa pergunta?")) {
@@ -40,15 +59,13 @@ export function Question({ question, roomId }: QuestionProps) {
     }
   }
   async function handleLikeQuestion(questionId: string, likeId: string | undefined) {
-    if (!user) {
-      return alert("Você precisa estar logado para dar like");
+    if (user?.id === undefined) {
+      return alert("Você precisa estar logado!");
     }
 
     if (likeId) {
-      // remover o like
       await database.ref(`rooms/${roomId}/questions/${questionId}/likes/${likeId}`).remove();
     } else {
-      // da o like
       await database.ref(`rooms/${roomId}/questions/${questionId}/likes`).push({
         authorId: user?.id
       });
@@ -56,7 +73,11 @@ export function Question({ question, roomId }: QuestionProps) {
   }
 
   return (
-    <div className="question-item">
+    <div
+      className={`question-item ${
+        question.isHighlighted && !question.isAnswered ? "highlighted" : ""
+      } ${question.isAnswered ? "answered" : ""}`}
+    >
       <p>{question.content}</p>
 
       <footer>
@@ -66,16 +87,39 @@ export function Question({ question, roomId }: QuestionProps) {
         </div>
 
         <div className="options">
-          {question.likeCount > 0 && question.likeCount}
+          {checkIsAdmin && !question.isHighlighted && (
+            <img
+              src={answer}
+              alt="Dar destaque à pergunta"
+              title="Dar destaque à pergunta"
+              onClick={() => handleHighlightQuestion(question.id)}
+            />
+          )}
+
+          {checkIsAdmin && !question.isAnswered && question.isHighlighted && (
+            <img
+              src={check}
+              alt="Marcar como respondida"
+              title="Marcar como respondida"
+              onClick={() => handleCheckQuestion(question.id)}
+              className={`${question.isAnswered ? "answered" : ""}`}
+            />
+          )}
+
+          {checkIsAdmin && (
+            <img src={deleteImg} alt="deletar" onClick={() => handleDeleteQuestion(question.id)} />
+          )}
           <img
             src={likeImg}
             alt="Like"
             onClick={() => handleLikeQuestion(question.id, question.likeId)}
             className={`${question.likeId ? "liked" : ""}`}
           />
-          <img src={deleteImg} alt="deletar" onClick={() => handleDeleteQuestion(question.id)} />
 
-          <img src={check} alt="chekar" onClick={() => handleDeleteQuestion(question.id)} />
+          <div className="likeCount">
+            {question.likeCount > 0 &&
+              (question.likeCount > 1000 ? (1100 / 1000).toFixed(1) + "k" : question.likeCount)}
+          </div>
         </div>
       </footer>
     </div>

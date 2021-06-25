@@ -8,8 +8,7 @@
   cursor: pointer;
   display: flex;
 
-
-  img{
+  img {
     filter: invert(0%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(1000%) contrast(1000%);
   }
 
@@ -21,8 +20,6 @@
     justify-content: center;
     align-items: center;
     height: 100%;
-   
-   
   }
 
   span {
@@ -33,5 +30,9 @@
     width: 240px;
     font-size: 14px;
     font-weight: 500;
+
+    &.copied {
+      color: #835afd;
+    }
   }
 }
