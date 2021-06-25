@@ -28,10 +28,12 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 
 - [React](https://reactjs.org)
 - [TypeScript](https://www.typescriptlang.org/)
+- [Firebase](https://firebase.google.com/)
+
 
 ## 💻 Projeto
 
-O letmeask é um projeto para facilitar as dúvidas e questões dos usuários da sua live.
+O letmeask é um projeto para Criar salas de Q&A ao vivo e tirar as dúvidas da sua audiência em tempo-real
 
 Use agora mesmo:
 1) acesse o site https://letmeask-eta.vercel.app
@@ -46,7 +48,7 @@ Você pode visualizar o layout do projeto através [desse link](https://www.figm
 
 ## 🚀 Como executar
 
-- Clone o repositório
+- Clone o repositório (git clone git@github.com:michaelgomes/letmeask.git)
 - Instale as dependências com `yarn`
 - Inicie com `yarn start`
 
