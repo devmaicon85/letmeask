@@ -63,7 +63,7 @@
     justify-content: center;
 
     @media (max-width: 632px) {
-        padding: 0px;
+      padding: 0px;
     }
 
     .main-content {
@@ -78,6 +78,7 @@
 
       > img {
         align-self: center;
+        margin-bottom: 20px;
       }
 
       .avatar {
@@ -134,12 +135,12 @@
     display: flex;
     align-items: center;
 
+    gap:15px;
     &::before {
       content: "";
       flex: 1;
       height: 1px;
       background: #a8a8b3;
-      margin-right: 16px;
     }
 
     &::after {
@@ -147,7 +148,6 @@
       flex: 1;
       height: 1px;
       background: #a8a8b3;
-      margin-right: 16px;
     }
   }
 }

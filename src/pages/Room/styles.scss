@@ -44,6 +44,18 @@
       margin-right: 20px;
     }
 
+    h4 {
+      font-size: 14px;
+      font-weight: 100;
+      margin-top: 10px;
+    }
+
+    hr{
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
+
+
     .room-title {
       margin: 32px 0px 24px;
       display: flex;
@@ -55,6 +67,7 @@
         color: #29292e;
       }
 
+      
       span {
         margin-left: 16px;
         background: #e559f9;
@@ -100,7 +113,6 @@
           }
 
           span {
-            
             margin-left: 8px;
             color: #29292e;
             font-weight: 500;

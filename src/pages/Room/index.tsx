@@ -132,7 +132,9 @@ export function Room() {
                 {!user ? (
                   <span>
                     Para enviar uma pergunta,{" "}
-                    <Button className="link" onClick={handleLoginGoogle}>faça seu login</Button>
+                    <Button className="link" onClick={handleLoginGoogle}>
+                      faça seu login
+                    </Button>
                   </span>
                 ) : (
                   <span className="user-info">
@@ -149,7 +151,12 @@ export function Room() {
           )}
 
           {questions && questions.length === 0 ? (
-            <h3>Aguardando Questões...</h3>
+            <>
+              <h3>Nenhuma pergunta no momento.</h3>
+              <hr/> 
+              <h4>Compartilhe o link da sala com o público interessado: </h4>
+              <h3><a href={window.location.href}>{window.location.href}</a></h3>
+            </>
           ) : (
             questions.map((question) => (
               <Question

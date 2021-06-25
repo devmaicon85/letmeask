@@ -32,7 +32,11 @@ export function Home() {
       return;
     }
 
-    const roomRef = await database.ref(`rooms/${roomCode}`).get();
+    // roomCode sem URL (quando enviado a url completa pega somente o codigo)
+    let roomCodeClean = roomCode.replace(window.location.href + "rooms/", "");
+    setRoomCode(roomCodeClean);
+
+    const roomRef = await database.ref(`rooms/${roomCodeClean}`).get();
 
     if (!roomRef.exists()) {
       alert("A sala não existe");
@@ -43,7 +47,7 @@ export function Home() {
       return alert("Essa sala já foi encerrada");
     }
 
-    history.push(`/rooms/${roomCode}`);
+    history.push(`/rooms/${roomCodeClean}`);
   }
 
   return (
@@ -64,7 +68,7 @@ export function Home() {
           <form onSubmit={handleJoinRoom}>
             <input
               type="text"
-              placeholder="Digite o código da sala"
+              placeholder="Digite o código ou link da sala"
               onChange={(e) => setRoomCode(e.target.value)}
               value={roomCode}
             />
