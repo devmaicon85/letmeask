@@ -38,7 +38,7 @@ Use agora mesmo:
 2) faça o login e crie uma sala com o assunto desejado
 3) compartilhe o link para seus público e aguarde as perguntas
 4) será possível acompanhar as dúvidas mais curtidas.
-5) curta, desquate ou responda conforme desejar
+5) curta, destaque e responda conforme desejar.
 
 ## 🔖 Layout
 
