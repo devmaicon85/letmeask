@@ -1,5 +1,5 @@
 import { Home } from "./pages/Home";
-import { NewRoom } from "./pages/NewRoom";
+import { NewRoom } from "./pages/Home/newRoom";
 import { Room } from "./pages/Room";
 // import { AdminRoom } from "./pages/AdminRoom";
 
