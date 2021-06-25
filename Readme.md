@@ -78,8 +78,8 @@ Use agora mesmo:
 
     ROOMS
       Componente único de ROOMS compartilhado com ADMIN (aproveitamento de código)
-    Rota ROOMS mesma Sala Admin (sem necessidade de redirecionamento)
-    Quando Admin Encerra a sala - usuários são redirecionados automaticamente
+      Rota ROOMS mesma Sala Admin (sem necessidade de redirecionamento)
+      Quando Admin Encerra a sala - usuários são redirecionados automaticamente
       Add proteção Room Admin
       Add nome e avatar do author da sala
       Add instruções para compartilhar o link da sala
@@ -88,15 +88,15 @@ Use agora mesmo:
 
     QUESTIONS
       Add componente isolado de ROOMS
-    Altura mámima definida para cada question
-    Scrool customizado quando ultrapassa altura maxima
-    Icones de Opções ampliam e mudam de cor com mouse
-    Limit de 1000 caracteres com contador para novas questões
+      Altura mámima definida para cada question
+      Scrool customizado quando ultrapassa altura maxima
+      Icones de Opções ampliam e mudam de cor com mouse
+      Limit de 1000 caracteres com contador para novas questões
 
     OUTROS
       add editorconfig
       add Prettierrc
-    add componente ASIDE para Home e NewRoom
+      add componente ASIDE para Home e NewRoom
       add Hospedagem Vercel
 
 ## 🔖 Layout
