@@ -1,7 +1,8 @@
 import { FormEvent, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link, useHistory } from "react-router-dom";
 
 import logoImg from "../../assets/images/logo.svg";
+
 import "./styles.scss";
 
 import { RoomCode } from "../../components/RoomCode";
@@ -13,24 +14,28 @@ import { database } from "../../services/firebase";
 import { useAuth } from "../../hooks/useAuth";
 import { useRoom } from "../../hooks/useRoom";
 
-
 type RoomParams = {
   id: string;
 };
 
-
-
 export function Room() {
   const { user } = useAuth();
+  const history  = useHistory();
   const params = useParams<RoomParams>();
   const roomId = params.id;
   const [newQuestion, setNewQuestion] = useState("");
 
+  const { title, questions } = useRoom(roomId);
 
-  const {title, questions} = useRoom(roomId)
- 
+  async function handleDeleteQuestion() {
+    if (window.confirm("Deseja mesmo encerrar essa sala?")) {
+      await database.ref(`rooms/${roomId}`).update({
+        closedAt: new Date()
+      });
 
-  
+      history.push("/");
+    }
+  }
 
   async function handleSendQuestion(event: FormEvent) {
     event.preventDefault();
@@ -62,9 +67,14 @@ export function Room() {
     <div id="page-room">
       <header>
         <div className="content">
-          <img src={logoImg} alt="Letmeask" />
+          <Link to="/">
+            <img src={logoImg} alt="Letmeask" />
+          </Link>
           <div>
             <RoomCode code={roomId} />
+            <Button isOutlined onClick={handleDeleteQuestion}>
+              Encerrar Sala
+            </Button>
           </div>
         </div>
       </header>
@@ -84,7 +94,7 @@ export function Room() {
           <div className="form-footer">
             {!user ? (
               <span>
-                Para enviar uma pergunta, <button>faça seu login</button>
+                Para enviar uma pergunta, <Link to="/">faça seu login</Link>
               </span>
             ) : (
               <span className="user-info">
@@ -99,10 +109,9 @@ export function Room() {
           </div>
         </form>
 
-        {/* {JSON.stringify(questions)} */}
         {questions &&
           questions.map((question) => (
-            <Question key={question.id} content={question.content} author={question.author} />
+            <Question key={question.id} question={question} roomId={roomId} />
           ))}
       </main>
     </div>

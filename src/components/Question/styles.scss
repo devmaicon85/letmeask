@@ -27,9 +27,18 @@
       color: #737380;
       font-family: "Poppins", sans-serif;
 
+      gap: 8px;
       img {
-        margin: 0px 8px;
         cursor: pointer;
+        filter: contrast(40%);
+
+        &:hover {
+          filter: none;
+        }
+
+        &.liked {
+          filter: none;
+        }
       }
     }
     .user-info {

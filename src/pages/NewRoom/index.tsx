@@ -6,14 +6,11 @@ import logoImg from "../../assets/images/logo.svg";
 
 import { Button } from "../../components/Button";
 import { useAuth } from "../../hooks/useAuth";
-
 import { database } from "../../services/firebase";
 
 export function NewRoom() {
   const { user } = useAuth();
-
   const history = useHistory();
-
   const [newRoom, setNewRoom] = useState("");
 
   async function handleCreateRoom(event: FormEvent) {

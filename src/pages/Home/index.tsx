@@ -10,8 +10,7 @@ import { Button } from "../../components/Button";
 import { useAuth } from "../../hooks/useAuth";
 import { database } from "../../services/firebase";
 
-import './styles.scss';
-
+import "./styles.scss";
 
 export function Home() {
   const history = useHistory();
@@ -38,6 +37,10 @@ export function Home() {
     if (!roomRef.exists()) {
       alert("A sala não existe");
       return;
+    }
+
+    if (roomRef.val().closedAt) {
+      return alert("Essa sala já foi encerrada");
     }
 
     history.push(`/rooms/${roomCode}`);

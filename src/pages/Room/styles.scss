@@ -9,7 +9,19 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+
       flex-wrap: wrap;
+
+      > div {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      button {
+        height: 40px;
+      }
 
       img {
         max-height: 75px;
