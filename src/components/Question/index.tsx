@@ -1,5 +1,3 @@
-import { ReactNode } from "react";
-import { useRoom } from "../../hooks/useRoom";
 import { useAuth } from "../../hooks/useAuth";
 import { database } from "../../services/firebase";
 

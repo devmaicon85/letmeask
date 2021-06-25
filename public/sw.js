@@ -1,5 +1,7 @@
 let CACHE_NAME = "codePwa"
 
+var urlCache = ["/"]
+
 /// install service worker
 this.addEventListener("install", (event) => {
     event.waitUntil(
