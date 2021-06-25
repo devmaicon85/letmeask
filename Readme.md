@@ -1,13 +1,8 @@
 <h1 align="center">
   <img alt="letmeask" title="letmeask" src=".github/logo.png" width="300px" />
- 
- 
+
 
 </h1>
-
-
-  
-
 
 <p align="center">
   <a href="#-tecnologias">Tecnologias</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
@@ -28,6 +23,7 @@
 </br>
 
 <br><br>
+
 <p align="center">
   <img alt="home" src=".github/home.png" width="70%">
 </p>
@@ -64,12 +60,12 @@ Use agora mesmo:
 ## 📝 Novidades
 
     LAYOUT
-      Add Responsividade
-    	Add styles na pasta respectivo componente
-    	Add Componente Loading
-    	Add Favicon
-    	Add Page 404 customizada Rocketseat. Adaptado para TSX e SCSS
-    	Add Variavel de cores (Primary e Secundary, Link)
+        Add Responsividade
+        Add styles na pasta respectivo componente
+        Add Componente Loading
+        Add Favicon
+        Add Page 404 customizada Rocketseat. Adaptado para TSX e SCSS
+        Add Variavel de cores (Primary e Secundary, Link)
 
     PWA
     	Add Manifest
@@ -77,27 +73,27 @@ Use agora mesmo:
     	Add ServiceWork com opção de Instalar APP
 
     ROOMS
-      Componente único de ROOMS compartilhado com ADMIN (aproveitamento de código)
-      Rota ROOMS mesma Sala Admin (sem necessidade de redirecionamento)
-      Quando Admin Encerra a sala - usuários são redirecionados automaticamente
-      Add proteção Room Admin
-      Add nome e avatar do author da sala
-      Add instruções para compartilhar o link da sala
-      Add login na sala
-      Add like 👍 para Admin (porque não?)
+        Componente único de ROOMS compartilhado com ADMIN (aproveitamento de código)
+        Rota ROOMS mesma Sala Admin (sem necessidade de redirecionamento)
+        Quando Admin Encerra a sala - usuários são redirecionados automaticamente
+        Add proteção Room Admin
+        Add nome e avatar do author da sala
+        Add instruções para compartilhar o link da sala
+        Add login na sala
+        Add like 👍 para Admin (porque não?)
 
     QUESTIONS
-      Add componente isolado de ROOMS
-      Altura mámima definida para cada question
-      Scrool customizado quando ultrapassa altura maxima
-      Icones de Opções ampliam e mudam de cor com mouse
-      Limit de 1000 caracteres com contador para novas questões
+        Add componente isolado de ROOMS
+        Altura mámima definida para cada question
+        Scrool customizado quando ultrapassa altura maxima
+        Icones de Opções ampliam e mudam de cor com mouse
+        Limit de 1000 caracteres com contador para novas questões
 
     OUTROS
-      add editorconfig
-      add Prettierrc
-      add componente ASIDE para Home e NewRoom
-      add Hospedagem Vercel
+        add editorconfig
+        add Prettierrc
+        add componente ASIDE para Home e NewRoom
+        add Hospedagem Vercel
 
 ## 🔖 Layout
 
