@@ -2,10 +2,12 @@ import { useAuth } from "../../hooks/useAuth";
 import { database } from "../../services/firebase";
 
 import "./styles.scss";
+
 import likeImg from "../../assets/images/like.svg";
 import deleteImg from "../../assets/images/delete.svg";
 import check from "../../assets/images/check.svg";
 import answer from "../../assets/images/answer.svg";
+
 
 type QuestionType = {
   id: string;
@@ -47,6 +49,7 @@ export function Question({ question, checkIsAdmin, roomId }: QuestionProps) {
     });
   }
 
+
   async function handleDeleteQuestion(questionId: string) {
     if (user?.id === undefined) {
       return alert("Você precisa estar logado!");
@@ -76,7 +79,7 @@ export function Question({ question, checkIsAdmin, roomId }: QuestionProps) {
         question.isHighlighted && !question.isAnswered ? "highlighted" : ""
       } ${question.isAnswered ? "answered" : ""}`}
     >
-      <p>{question.content}</p>
+      <p className="custom-scroll-bar">{question.content}</p>
 
       <footer>
         <div className="user-info">

@@ -113,6 +113,10 @@ export function Room() {
         <main>
           <div className="content">
             <div className="room-title">
+              <div className="avatar">
+                <img src={user?.avatar} alt={user?.name} />
+                <p>{user?.name}</p>
+              </div>
               <h1>{title}</h1>
               {questions && <span>{questions.length} pergunta(s)</span>}
             </div>

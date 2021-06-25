@@ -8,7 +8,6 @@ html {
   // a cada 1rem será considerado 1px
   font-size: 6.25%;
   height: 100vh;
-
 }
 body {
   font-size: 14rem;
@@ -25,7 +24,7 @@ a {
 
   &:hover {
     text-decoration: underline;
-    color:#e559f9;
+    color: #e559f9;
   }
 }
 body,
@@ -45,15 +44,31 @@ textarea {
   }
 }
 
-@media (max-width: 1024px) {
+.custom-scroll-bar {
+  &::-webkit-scrollbar {
+    border-radius: 10px;
+    height: 10px;
+    width: 8px;
+  }
 
-  html{
+  &::-webkit-scrollbar-thumb {
+    background: #CCC;
+    border-radius: 10px;
+  }
+
+  &::-webkit-scrollbar-track {
+    border-radius: 10px;
+  }
+}
+
+@media (max-width: 1024px) {
+  html {
     font-size: 5.5%;
   }
 }
 
-@media (max-width: 890px) {
-  html{
-    font-size: 5.0%;
-  }
-}
+// @media (max-width: 890px) {
+//   html{
+//     font-size: 5.0%;
+//   }
+// }

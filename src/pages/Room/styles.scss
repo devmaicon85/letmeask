@@ -56,6 +56,23 @@
       margin: 32px 0px 24px;
       display: flex;
       align-items: center;
+      text-align: center;
+
+      justify-content: space-between;
+      flex-wrap: wrap;
+
+      .avatar{
+        justify-content: center;
+        text-align: center;
+        img{
+          height: 65rem;
+          border-radius: 50%;
+        }
+        p{
+          font-size: 12rem;
+        }
+      }
+     
 
       h1 {
         font-family: "Poppins", sans-serif;
@@ -129,6 +146,11 @@
 
 @media (max-width: 580px) {
   #page-room {
+    main{
+      .room-title {
+        justify-content: center;
+      }
+    }
     header {
       .content {
         justify-content: center;

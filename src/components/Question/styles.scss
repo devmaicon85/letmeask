@@ -25,9 +25,13 @@
     display: flex;
     margin-bottom: 25px;
     color: #29292e;
-    white-space: pre-line; 
-    overflow: hidden; 
+    white-space: pre-line;
+    overflow: hidden;
     text-overflow: ellipsis;
+    max-height: 120rem;
+    overflow-y: auto;
+
+   
   }
 
   footer {
@@ -90,3 +94,4 @@
     }
   }
 }
+
