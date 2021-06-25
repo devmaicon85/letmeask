@@ -132,7 +132,7 @@ export function Room() {
                 {!user ? (
                   <span>
                     Para enviar uma pergunta,{" "}
-                    <Button onClick={handleLoginGoogle}>faça seu login</Button>
+                    <Button className="link" onClick={handleLoginGoogle}>faça seu login</Button>
                   </span>
                 ) : (
                   <span className="user-info">
