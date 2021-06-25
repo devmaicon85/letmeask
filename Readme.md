@@ -1,6 +1,13 @@
 <h1 align="center">
   <img alt="letmeask" title="letmeask" src=".github/logo.png" width="300px" />
+ 
+ 
+
 </h1>
+
+
+  
+
 
 <p align="center">
   <a href="#-tecnologias">Tecnologias</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
@@ -8,25 +15,26 @@
   <a href="#-novidades">Novidades</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#-layout">Layout</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#-como-executar">Como executar</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#-licença">Licença</a>
+  <a href="#-licença">Licença</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="https://letmeask-eta.vercel.app">Visite o Site</a>
 </p>
 
+<hr><br>
 <p align="center">
 <img src="https://img.shields.io/static/v1?label=NLW&message=04&color=8257E5&labelColor=000000" alt="NLW 2021" />
 
   <img alt="License" src="https://img.shields.io/static/v1?label=license&message=MIT&color=8257E5&labelColor=000000">
 
+</br>
+
+<br><br>
+<p align="center">
+  <img alt="home" src=".github/home.png" width="70%">
 </p>
 
 <p align="center">
-  <img alt="home" src=".github/home.png" width="50%">
+  <img alt="admin" src=".github/admin.png" width="70%">
 </p>
-
-
-<p align="center">
-  <img alt="admin" src=".github/admin.png" width="50%">
-</p>
-
 
 <p align="center">
 
