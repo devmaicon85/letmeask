@@ -3,8 +3,6 @@ import { useParams, Link, useHistory } from "react-router-dom";
 
 import logoImg from "../../assets/images/logo.svg";
 
-import "./styles.scss";
-
 import { RoomCode } from "../../components/RoomCode";
 import { Button } from "../../components/Button";
 import { Question } from "../../components/Question";
@@ -15,14 +13,12 @@ import { database } from "../../services/firebase";
 import { useAuth } from "../../hooks/useAuth";
 import { useRoom } from "../../hooks/useRoom";
 
+import "./styles.scss";
+
 type RoomParams = {
   id: string;
   isAdmin: string;
 };
-
-// A sala ROOM deixei mesmo componente para ADMIN e USUARIOS para evitar duplicação de código
-// Like deixei também no ADMIN para o mesmo visualizar os likes e porque não também dar um LIKE?
-// SVG para mudar de cor no hover apenas coloquei cor direto no SVG e retirei o brilho/contraste via css
 
 export function Room() {
   const { user, signInWithGoogle } = useAuth();
@@ -115,58 +111,60 @@ export function Room() {
         <Loading />
       ) : (
         <main>
-          <div className="room-title">
-            <h1>{title}</h1>
-            {questions && <span>{questions.length} pergunta(s)</span>}
+          <div className="content">
+            <div className="room-title">
+              <h1>{title}</h1>
+              {questions && <span>{questions.length} pergunta(s)</span>}
+            </div>
+
+            {!checkIsAdmin && (
+              <form onSubmit={handleSendQuestion}>
+                <textarea
+                  placeholder="O que você quer perguntar?"
+                  onChange={(e) => setNewQuestion(e.target.value)}
+                  value={newQuestion}
+                />
+
+                <div className="form-footer">
+                  {!user ? (
+                    <span>
+                      Para enviar uma pergunta,{" "}
+                      <Button className="link" onClick={handleLoginGoogle}>
+                        faça seu login
+                      </Button>
+                    </span>
+                  ) : (
+                    <span className="user-info">
+                      <img src={user.avatar} alt={user.name}></img>
+                      <span>{user.name}</span>
+                    </span>
+                  )}
+
+                  <Button type="submit" disabled={!user}>
+                    Enviar Pergunta
+                  </Button>
+                </div>
+              </form>
+            )}
+
+            {questions && questions.length === 0 ? (
+              <>
+                <h3>Aguardando perguntas...</h3>
+                <hr />
+                <h4>Compartilhe o link da sala com o público interessado: </h4>
+                <a href={window.location.href}>{window.location.href}</a>
+              </>
+            ) : (
+              questions.map((question) => (
+                <Question
+                  key={question.id}
+                  checkIsAdmin={checkIsAdmin}
+                  question={question}
+                  roomId={roomId}
+                />
+              ))
+            )}
           </div>
-
-          {!checkIsAdmin && (
-            <form onSubmit={handleSendQuestion}>
-              <textarea
-                placeholder="O que você quer perguntar?"
-                onChange={(e) => setNewQuestion(e.target.value)}
-                value={newQuestion}
-              />
-
-              <div className="form-footer">
-                {!user ? (
-                  <span>
-                    Para enviar uma pergunta,{" "}
-                    <Button className="link" onClick={handleLoginGoogle}>
-                      faça seu login
-                    </Button>
-                  </span>
-                ) : (
-                  <span className="user-info">
-                    <img src={user.avatar} alt={user.name}></img>
-                    <span>{user.name}</span>
-                  </span>
-                )}
-
-                <Button type="submit" disabled={!user}>
-                  Enviar Pergunta
-                </Button>
-              </div>
-            </form>
-          )}
-
-          {questions && questions.length === 0 ? (
-            <>
-              <h3>Nenhuma pergunta no momento.</h3>
-              <hr/> 
-              <h4>Compartilhe o link da sala com o público interessado: </h4>
-              <h3><a href={window.location.href}>{window.location.href}</a></h3>
-            </>
-          ) : (
-            questions.map((question) => (
-              <Question
-                key={question.id}
-                checkIsAdmin={checkIsAdmin}
-                question={question}
-                roomId={roomId}
-              />
-            ))
-          )}
         </main>
       )}
     </div>

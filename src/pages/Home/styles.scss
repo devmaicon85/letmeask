@@ -1,12 +1,13 @@
 #page-auth {
   display: flex;
   align-items: stretch;
-  height: 100vh;
-
   flex-wrap: wrap;
 
   aside {
-    flex: 7;
+    // width: 60%;
+    height: 100vh;
+
+    flex: 5;
     background-color: #835afd;
     color: #fff;
 
@@ -14,71 +15,48 @@
     flex-direction: column;
     justify-content: center;
 
-    padding: 120px 80px;
+    padding: 120rem 80rem;
 
     img {
-      max-width: 320px;
+      max-width: 320rem;
     }
 
     strong {
-      font: 700 36px "Poppins", sans-serif;
-      line-height: 42px;
-      margin-top: 16px;
+      font: 700 30rem "Poppins", sans-serif;
+      line-height: 42rem;
+      margin-top: 16rem;
     }
 
     p {
-      font-size: 24px;
-      line-height: 32px;
-      margin-top: 16px;
+      font-size: 24rem;
+      line-height: 32rem;
+      margin-top: 16rem;
       color: #f8f8f8;
-    }
-
-    @media (max-width: 632px) {
-      padding: 20px 20px;
-
-      align-items: center;
-      justify-content: center;
-
-      img {
-        max-width: 80px;
-      }
-
-      strong {
-        font-size: 20px;
-      }
-
-      p {
-        font-size: 13px;
-        margin-top: 0px;
-      }
     }
   }
 
   main {
-    flex: 8;
-    padding: 0 32px;
+    // width: 40%;
+    flex: 5;
 
     display: flex;
     align-items: center;
     justify-content: center;
-
-    @media (max-width: 632px) {
-      padding: 0px;
-    }
 
     .main-content {
       display: flex;
       flex-direction: column;
       width: 100%;
       max-width: 320px;
+
       align-items: stretch;
       text-align: center;
 
-      margin: 50px;
+      margin: 25rem;
 
       > img {
         align-self: center;
-        margin-bottom: 20px;
+        margin-bottom: 20rem;
       }
 
       .avatar {
@@ -135,7 +113,7 @@
     display: flex;
     align-items: center;
 
-    gap:15px;
+    gap: 15px;
     &::before {
       content: "";
       flex: 1;
@@ -148,6 +126,59 @@
       flex: 1;
       height: 1px;
       background: #a8a8b3;
+    }
+  }
+}
+
+@media (max-width: 800px) {
+
+  #page-auth {
+    flex-direction: column;
+
+    aside {
+        padding: 20px;
+
+        margin-bottom: 30px;
+
+        align-items: center;
+        justify-content: center;
+  
+       
+        img{
+          height: 120rem;
+        }
+
+        strong{
+          text-align: center;
+          font-size: 30rem;
+
+        }
+        
+        p {
+          text-align: center;
+          font-size: 20rem;
+          margin-top: 0px;
+        }
+
+    }
+  }
+}
+
+
+@media (max-width: 380px) {
+
+  #page-auth {
+
+    aside {
+
+        strong{
+          font-size: 24rem;
+        }
+        
+        p {
+          font-size: 15rem;
+        }
+
     }
   }
 }

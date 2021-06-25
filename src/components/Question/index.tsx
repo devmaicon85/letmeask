@@ -85,28 +85,35 @@ export function Question({ question, checkIsAdmin, roomId }: QuestionProps) {
         </div>
 
         <div className="options">
-          {checkIsAdmin && !question.isHighlighted && (
-            <img
-              src={answer}
-              alt="Dar destaque à pergunta"
-              title="Dar destaque à pergunta"
-              onClick={() => handleHighlightQuestion(question.id)}
-            />
-          )}
-
-          {checkIsAdmin && !question.isAnswered && question.isHighlighted && (
-            <img
-              src={check}
-              alt="Marcar como respondida"
-              title="Marcar como respondida"
-              onClick={() => handleCheckQuestion(question.id)}
-              className={`${question.isAnswered ? "answered" : ""}`}
-            />
-          )}
-
           {checkIsAdmin && (
-            <img src={deleteImg} alt="deletar" onClick={() => handleDeleteQuestion(question.id)} />
+            <>
+              {!question.isHighlighted && (
+                <img
+                  src={answer}
+                  alt="Dar destaque à pergunta"
+                  title="Dar destaque à pergunta"
+                  onClick={() => handleHighlightQuestion(question.id)}
+                />
+              )}
+
+              {!question.isAnswered && question.isHighlighted && (
+                <img
+                  src={check}
+                  alt="Marcar como respondida"
+                  title="Marcar como respondida"
+                  onClick={() => handleCheckQuestion(question.id)}
+                  className={`${question.isAnswered ? "answered" : ""}`}
+                />
+              )}
+
+              <img
+                src={deleteImg}
+                alt="deletar"
+                onClick={() => handleDeleteQuestion(question.id)}
+              />
+            </>
           )}
+
           <img
             src={likeImg}
             alt="Like"
