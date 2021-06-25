@@ -41,23 +41,41 @@ export function useRoom(roomId: string) {
   const [questions, setQuestions] = useState<QuestionType[]>([]);
   const [title, setTitle] = useState("");
 
+  const [avatar, setAvatar] = useState("");
+  const [name, setName] = useState("");
+
   const [checkIsAdmin, setCheckIsAdmin] = useState(false)
 
+
+
   useEffect(() => {
+
+
     const roomRef = database.ref(`rooms/${roomId}`);
     // on fica escutando - once uma vez
 
     roomRef.get().then(room => {
-      if (room.val().closedAt) {
-        alert('Essa sala já foi encerrada!!')
+
+      if (!room.exists()) {
+        alert('Essa sala já não existe mais!!')
         history.push("/");
+        return;
       }
+
+
     })
 
     roomRef.on("value", (room) => {
-      const databaseRoom = room.val();
-      const firebaseQuestions: FirebaseQuestion = databaseRoom.questions ?? {};
 
+      const databaseRoom = room.val();
+
+      if (databaseRoom?.closedAt) {
+        alert('Essa sala foi encerrada!!')
+        history.push("/");
+        return;
+      }
+
+      const firebaseQuestions: FirebaseQuestion = databaseRoom?.questions ?? {};
 
       const parsedQuestions = Object.entries(firebaseQuestions).map(([key, value]) => {
         return {
@@ -76,8 +94,10 @@ export function useRoom(roomId: string) {
       // const questionSorted = parsedQuestions.sort((a, b) => b.likeCount - a.likeCount);
 
 
-      setCheckIsAdmin(databaseRoom.authorId === user?.id ? true : false)
-      setTitle(databaseRoom.title);
+      setCheckIsAdmin(databaseRoom?.authorId === user?.id ? true : false)
+      setTitle(databaseRoom?.title);
+      setAvatar(databaseRoom?.avatar);
+      setName(databaseRoom?.name);
       setQuestions(parsedQuestions);
     });
 
@@ -89,6 +109,6 @@ export function useRoom(roomId: string) {
 
   }, [roomId, checkIsAdmin, user?.id, history]);
 
-  return { questions, title, checkIsAdmin }
+  return { questions, title, name, avatar, checkIsAdmin }
 
 }

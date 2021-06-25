@@ -1,11 +1,11 @@
 import { FormEvent, useState } from "react";
 import { useHistory } from "react-router";
 
-import illustration from "../../assets/images/illustration.svg";
 import logoImg from "../../assets/images/logo.svg";
 import googleIconImg from "../../assets/images/google-icon.svg";
 
 import { Button } from "../../components/Button";
+import { Aside } from "../../components/Aside";
 
 import { useAuth } from "../../hooks/useAuth";
 import { database } from "../../services/firebase";
@@ -52,11 +52,7 @@ export function Home() {
 
   return (
     <div id="page-auth">
-      <aside>
-        <img src={illustration} alt="Ilustração simbolizando perguntas e respostas" />
-        <strong>Crie salas de Q&amp;A ao vivo</strong>
-        <p>Tire as dúvidas da sua audiência em tempo-real</p>
-      </aside>
+      <Aside></Aside>
       <main>
         <div className="main-content">
           <img src={logoImg} alt="letmeask" />

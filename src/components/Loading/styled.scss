@@ -11,8 +11,8 @@
     height: 120px;
     animation: spin 2s alternate-reverse infinite;
 
-    border-top: 16px solid #835afd;
-    border-bottom: 16px solid #e559f9;
+    border-top: 16px solid var(--primary);
+    border-bottom: 16px solid var(--secundary);
   }
 
   @keyframes spin {

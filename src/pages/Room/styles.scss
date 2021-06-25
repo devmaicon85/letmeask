@@ -33,10 +33,13 @@
   main {
     max-width: 800px;
     margin: 0 auto;
+    
 
     .content {
-      margin: 20px !important;
-    }
+      margin: 20px;
+      padding-bottom: 100px;
+      
+      }
 
     h4 {
       font-size: 14px;
@@ -62,14 +65,17 @@
       flex-wrap: wrap;
 
       .avatar{
+        
         justify-content: center;
         text-align: center;
         img{
           height: 65rem;
+          width: 65rem;
           border-radius: 50%;
+          background-color: #FFF;
         }
         p{
-          font-size: 12rem;
+          font-size: 13rem;
         }
       }
      
@@ -82,7 +88,7 @@
 
       span {
         margin-left: 16px;
-        background: #e559f9;
+        background: var(--secundary);
         border-radius: 999px;
         padding: 8px 16px;
         color: #fff;
@@ -111,7 +117,7 @@
         margin-top: 16px;
         margin-bottom: 30px;
 
-        gap: 5px;
+        gap: 15px;
         flex-wrap: wrap;
 
         .user-info {
@@ -149,6 +155,8 @@
     main{
       .room-title {
         justify-content: center;
+        flex-direction: column;
+        gap: 15px;
       }
     }
     header {

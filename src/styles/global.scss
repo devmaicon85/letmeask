@@ -2,6 +2,19 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+
+  // retira seleção de textos da tela
+  // comportamento de app
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+:root {
+  --primary: #453164;
+  --secundary: #984e9e;
+  --link: #ffb366;
 }
 
 html {
@@ -20,11 +33,11 @@ body {
 a {
   font: 400 14rem "Roboto", sans-serif;
   text-decoration: none;
-  color: #835afd;
+  color: var(--primary);
 
   &:hover {
     text-decoration: underline;
-    color: #e559f9;
+    color: var(--secundary);
   }
 }
 body,
@@ -36,11 +49,11 @@ textarea {
 
 input,
 textarea {
-  border: 1rem solid #835afd !important;
+  border: 2px solid var(--secundary) !important;
   outline: 0;
 
   &:focus {
-    border: 1rem solid #e559f9 !important;
+    border: 2px solid var(--link) !important;
   }
 }
 
@@ -52,7 +65,7 @@ textarea {
   }
 
   &::-webkit-scrollbar-thumb {
-    background: #CCC;
+    background: #ccc;
     border-radius: 10px;
   }
 

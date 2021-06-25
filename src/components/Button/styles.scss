@@ -2,7 +2,7 @@
   height: 50px;
   border-radius: 8px;
   font-weight: 500;
-  background: #835afd;
+  background: var(--secundary);
   color: #fff;
   padding: 0 32px;
 
@@ -29,23 +29,20 @@
 
   &.outlined {
     background: #fff;
-    border: 1px solid #835afd;
-    color: #835afd;
-
+    border: 1px solid var(--primary);
+    color: var(--primary);
   }
 }
 
-.link{
-   
+.link {
   margin: 0;
   padding: 0px 15px;
   background: transparent;
   border: 0;
-  color: #835afd;
+  color: var(--primary);
   text-decoration: underline;
   font-size: 14px;
   font-weight: 500;
   cursor: pointer;
   height: 15px;
 }
-

@@ -8,7 +8,7 @@
 
   &.highlighted {
     background-color: #f4f0ff;
-    border: 1px solid #835afd;
+    border: 1px solid var(--secundary);
   }
 
   &.answered {
@@ -31,7 +31,10 @@
     max-height: 120rem;
     overflow-y: auto;
 
-   
+    -webkit-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text;
+    user-select: text;
   }
 
   footer {
@@ -49,7 +52,7 @@
 
       .likeCount {
         width: 20px;
-        color: #835afd;
+        color: var(--secundary);
         font-size: 14px;
         font-weight: bold;
       }
@@ -94,4 +97,3 @@
     }
   }
 }
-

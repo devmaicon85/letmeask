@@ -1,15 +1,15 @@
 import { FormEvent, useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 
-import illustration from "../../assets/images/illustration.svg";
 import logoImg from "../../assets/images/logo.svg";
 
+import { Aside } from "../../components/Aside";
 import { Button } from "../../components/Button";
+
 import { useAuth } from "../../hooks/useAuth";
 import { database } from "../../services/firebase";
 
 import "./styles.scss";
-
 
 export function NewRoom() {
   const { user } = useAuth();
@@ -27,7 +27,9 @@ export function NewRoom() {
 
     const firebaseRoom = await roomRef.push({
       title: newRoom,
-      authorId: user?.id
+      authorId: user?.id,
+      name: user?.name,
+      avatar: user?.avatar
     });
 
     history.push(`/rooms/${firebaseRoom.key}`);
@@ -35,15 +37,11 @@ export function NewRoom() {
 
   return (
     <div id="page-auth">
-      <aside>
-        <img src={illustration} alt="Ilustração simbolizando perguntas e respostas" />
-        <strong>Crie salas de Q&amp;A ao vivo</strong>
-        <p>Tire as dúvidas da sua audiência em tempo-real</p>
-      </aside>
+      <Aside />
       <main>
         <div className="main-content">
           <img src={logoImg} alt="letmeask" />
-          <img src={user?.avatar} alt={user?.name}  className="avatar"/>
+          <img src={user?.avatar} alt={user?.name} className="avatar" />
           <h3>{user?.name}</h3>
           <h2>Criar uma nova sala</h2>
           <form onSubmit={handleCreateRoom}>

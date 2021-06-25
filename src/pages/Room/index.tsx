@@ -30,7 +30,9 @@ export function Room() {
 
   const [loading, setLoading] = useState(true);
 
-  const { title, questions, checkIsAdmin } = useRoom(roomId);
+  const limitCaracterNewQuestion = 1000;
+
+  const { title, avatar, name, questions, checkIsAdmin } = useRoom(roomId);
 
   async function handleLoginGoogle() {
     if (!user) {
@@ -48,6 +50,13 @@ export function Room() {
     }
   }
 
+  function handleSetQuestion(value: string) {
+    if (value.length > limitCaracterNewQuestion) {
+      alert("Máximo 1000 caracteres");
+    } else {
+      setNewQuestion(value);
+    }
+  }
   async function handleSendQuestion(event: FormEvent) {
     event.preventDefault();
 
@@ -114,8 +123,8 @@ export function Room() {
           <div className="content">
             <div className="room-title">
               <div className="avatar">
-                <img src={user?.avatar} alt={user?.name} />
-                <p>{user?.name}</p>
+                <img src={avatar} alt={name} />
+                <p>{name}</p>
               </div>
               <h1>{title}</h1>
               {questions && <span>{questions.length} pergunta(s)</span>}
@@ -125,7 +134,7 @@ export function Room() {
               <form onSubmit={handleSendQuestion}>
                 <textarea
                   placeholder="O que você quer perguntar?"
-                  onChange={(e) => setNewQuestion(e.target.value)}
+                  onChange={(e) => handleSetQuestion(e.target.value)}
                   value={newQuestion}
                 />
 
@@ -138,10 +147,14 @@ export function Room() {
                       </Button>
                     </span>
                   ) : (
-                    <span className="user-info">
-                      <img src={user.avatar} alt={user.name}></img>
-                      <span>{user.name}</span>
-                    </span>
+                    <>
+                      <span className="user-info">
+                        <img src={user.avatar} alt={user.name}></img>
+                        <span>{user.name}</span>
+                      </span>
+                      <span className="limit">{`${newQuestion.length} | ${limitCaracterNewQuestion}`}</span>
+
+                    </>
                   )}
 
                   <Button type="submit" disabled={!user}>

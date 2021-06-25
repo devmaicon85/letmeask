@@ -10,10 +10,14 @@
 
   img {
     filter: invert(0%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(1000%) contrast(1000%);
+    width: 22px;
+    height: 22px;
   }
 
   div {
-    background-color: #835afd;
+    background-color: var(--secundary);
+
+   
 
     padding: 0 12px;
     display: flex;
@@ -32,7 +36,7 @@
     font-weight: 500;
 
     &.copied {
-      color: #835afd;
+      color: var(--primary);
     }
   }
 }
