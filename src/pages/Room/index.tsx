@@ -2,6 +2,7 @@ import { FormEvent, useEffect, useState } from "react";
 import { useParams, Link, useHistory } from "react-router-dom";
 
 import logoImg from "../../assets/images/logo.svg";
+import imgEmptyQuestions from "../../assets/images/empty-questions.svg";
 
 import { RoomCode } from "../../components/RoomCode";
 import { Button } from "../../components/Button";
@@ -57,6 +58,7 @@ export function Room() {
       setNewQuestion(value);
     }
   }
+
   async function handleSendQuestion(event: FormEvent) {
     event.preventDefault();
 
@@ -65,14 +67,14 @@ export function Room() {
     }
 
     if (!user) {
-      throw new Error("Você deve estar logado");
+      alert("Você deve estar logado para enviar perguntas");
     }
 
     const question = {
       content: newQuestion,
       author: {
-        name: user.name,
-        avatar: user.avatar
+        name: user?.name,
+        avatar: user?.avatar
       },
       isHighlighted: false,
       isAnswered: false
@@ -86,6 +88,20 @@ export function Room() {
       alert("Ocorreu algum erro ao enviar sua pergunta. Tente novamente.");
       setNewQuestion(question.content);
     }
+  }
+
+  function copyRoomCodeToClipboard() {
+    // navigator.clipboard.writeText(`${props.code}`);
+    navigator.clipboard.writeText(window.location.href);
+
+    const shareData = {
+      title: "LetmeAsk ",
+      text: "Sala " + title,
+      url: window.location.href
+    };
+
+    navigator.share(shareData);
+    // alert("Link copiado");
   }
 
   useEffect(() => {
@@ -153,10 +169,8 @@ export function Room() {
                         <span>{user.name}</span>
                       </span>
                       <span className="limit">{`${newQuestion.length} | ${limitCaracterNewQuestion}`}</span>
-
                     </>
                   )}
-
                   <Button type="submit" disabled={!user}>
                     Enviar Pergunta
                   </Button>
@@ -165,12 +179,15 @@ export function Room() {
             )}
 
             {questions && questions.length === 0 ? (
-              <>
-                <h3>Aguardando perguntas...</h3>
+              <div className="emptyQuestions">
+                <img src={imgEmptyQuestions} alt="nenhuma questão" />
+                <h3>Nenhum pergunta no momento</h3>
                 <hr />
                 <h4>Compartilhe o link da sala com o público interessado: </h4>
-                <a href={window.location.href}>{window.location.href}</a>
-              </>
+                <button className="link" onClick={copyRoomCodeToClipboard}>
+                  {window.location.href}
+                </button>
+              </div>
             ) : (
               questions.map((question) => (
                 <Question

@@ -50,6 +50,7 @@ export function Home() {
     history.push(`/rooms/${roomCodeClean}`);
   }
 
+
   return (
     <div id="page-auth">
       <Aside></Aside>
