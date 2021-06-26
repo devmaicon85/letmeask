@@ -54,8 +54,8 @@ Use agora mesmo:
 1. acesse o site https://letmeask-eta.vercel.app
 2. faça o login e crie uma sala com o assunto desejado
 3. compartilhe o link para seus público e aguarde as perguntas
-4. será possível acompanhar as dúvidas mais curtidas.
-5. curta, destaque e responda conforme desejar.
+
+Se preferir acesse uma sala já criada: https://letmeask-eta.vercel.app/rooms/-Md8slKExuwO6v7rVbWQ
 
 ## 📝 Novidades
 
