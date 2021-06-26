@@ -101,9 +101,16 @@ Você pode visualizar o layout do projeto através [desse link](https://www.figm
 
 ## 🚀 Como executar
 
-- Clone o repositório (git clone git@github.com:michaelgomes/letmeask.git)
+
+- Instale o Node.js
+- Instale o Yarn
+- Clone o repositório `git`
 - Instale as dependências com `yarn`
-- Inicie com `yarn start`
+- Crie um projeto no `Firebase`
+- Adicione as credenciais do seu firebase em `.env.example`
+- Altere `.env.example` para `.env.local`
+- Ative o firebase authentication com a autenticação do google
+- Inicie o servidor com `yarn start` no terminal
 
 Agora você pode acessar [`localhost:3000`](http://localhost:3000) do seu navegador.
 
