@@ -1,6 +1,6 @@
 let CACHE_NAME = "codePwa"
 
-var urlCache = ["/", "/images/*"]
+var urlCache = ["/"]
 
 /// install service worker
 this.addEventListener("install", (event) => {

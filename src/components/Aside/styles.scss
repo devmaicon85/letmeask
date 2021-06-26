@@ -3,7 +3,9 @@ aside {
   height: 100vh;
 
   flex: 5;
-  background-color: var(--primary);;
+  background-color: var(--primary);
+  // background-image: linear-gradient(to top, var(--primary  ), var(--secundary) );
+
   color: #fff;
 
   display: flex;
