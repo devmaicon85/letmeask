@@ -1,5 +1,5 @@
 import { FormEvent, useEffect, useState } from "react";
-import { useParams, Link, useHistory } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 
 import logoImg from "../../assets/images/logo.svg";
 import imgEmptyQuestions from "../../assets/images/empty-questions.svg";
@@ -24,7 +24,7 @@ type RoomParams = {
 export function Room() {
   const { user, signInWithGoogle } = useAuth();
 
-  const history = useHistory();
+  // const history = useHistory();
   const params = useParams<RoomParams>();
   const roomId = params.id;
   const [newQuestion, setNewQuestion] = useState("");
@@ -32,6 +32,7 @@ export function Room() {
   const [loading, setLoading] = useState(true);
 
   const limitCaracterNewQuestion = 1000;
+  const minCaracterNewQuestion = 20;
 
   const { title, avatar, name, questions, checkIsAdmin } = useRoom(roomId);
 
@@ -46,8 +47,6 @@ export function Room() {
       await database.ref(`rooms/${roomId}`).update({
         closedAt: new Date()
       });
-
-      history.push("/");
     }
   }
 
@@ -68,11 +67,18 @@ export function Room() {
 
     if (!user) {
       alert("Você deve estar logado para enviar perguntas");
+      return;
+    }
+
+    if (newQuestion.trim().length < minCaracterNewQuestion) {
+      alert("Por favor enviar apenas perguntas. Mínimo 20 caracteres");
+      return;
     }
 
     const question = {
       content: newQuestion,
       author: {
+        id: user?.id,
         name: user?.name,
         avatar: user?.avatar
       },
@@ -81,7 +87,7 @@ export function Room() {
     };
 
     try {
-      setNewQuestion("");
+      setNewQuestion(""); // evita enviar mais de uma vez ao pressionar botão 2x
       await database.ref(`rooms/${roomId}/questions`).push(question);
       // alert("Pergunta enviada com sucesso!");
     } catch (error) {

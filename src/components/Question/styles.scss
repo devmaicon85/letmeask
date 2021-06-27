@@ -82,18 +82,40 @@
         }
       }
     }
+    button {
+      
+      border: 0;
+      background: transparent;
+      max-height: 24px;
+      max-width: 24px;
+      font-size: 26px;
+
+      border: 0px solid #ff0000;
+
+      align-items: center;
+      justify-content: center;
+      color: var(--secundary);
+      cursor: pointer;
+
+      &:hover {
+        color: var(--primary);
+        transform: scale(1.15);
+      }
+    }
     .user-info {
       display: flex;
       align-items: center;
       font-size: 14px;
       color: #737380;
 
+      gap: 8px;
+
       img {
         width: 32px;
         height: 32px;
         margin-right: 10px;
         border-radius: 50%;
-        background-color: #CCC;
+        background-color: #ccc;
       }
     }
   }

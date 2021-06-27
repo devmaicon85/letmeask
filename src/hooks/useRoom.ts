@@ -6,6 +6,7 @@ import { useAuth } from "./useAuth";
 type QuestionType = {
   id: string;
   author: {
+    id:string,
     name: string;
     avatar: string;
   };
@@ -21,6 +22,7 @@ type FirebaseQuestion = Record<
   string,
   {
     author: {
+      id:string,
       name: string;
       avatar: string;
     };
@@ -49,24 +51,7 @@ export function useRoom(roomId: string) {
   const [checkIsAdmin, setCheckIsAdmin] = useState(false)
 
 
-
-  // useEffect(() => {
-
-  //   // tem questões mas nunca ordenou 
-  //   // ordenas no carregamento da pagina para o usuario atual
-  //   console.log("nenhuma questao")
-
-  //   if (questionSorted.length === 0 && questions.length > 0) {
-  //     console.log("ordenou")
-
-  //     let order = (questions.sort((a, b) => b.likeCount - a.likeCount));
-  //     setQuestions(order); // ordena
-  //   }
-
-  // }, [questionSorted, questions])
-
   useEffect(() => {
-
 
     const roomRef = database.ref(`rooms/${roomId}`);
     // on fica escutando - once uma vez
@@ -74,22 +59,18 @@ export function useRoom(roomId: string) {
     roomRef.get().then(room => {
 
       if (!room.exists()) {
-        alert('Essa sala já não existe mais!!')
-        history.push("/");
-        return;
+        alert('Essa sala não existe ou foi excluída')
+        return history.push("/");
       }
-
-
-    })
+    });
 
     roomRef.on("value", (room) => {
 
       const databaseRoom = room.val();
 
-      if (databaseRoom?.closedAt) {
-        alert('Essa sala foi encerrada!!')
-        history.push("/");
-        return;
+      if (databaseRoom?.closedAt ) {
+        alert('Essa sala foi encerrada pelo administrador!!')
+        return history.push("/");
       }
 
       const firebaseQuestions: FirebaseQuestion = databaseRoom?.questions ?? {};
@@ -113,12 +94,7 @@ export function useRoom(roomId: string) {
       setAvatar(databaseRoom?.avatar);
       setName(databaseRoom?.name);
       setQuestions(parsedQuestions);
-
-
-
     });
-
-
 
 
     history.push(`/rooms/${roomId}`);

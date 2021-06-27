@@ -39,7 +39,7 @@ export function Home() {
     const roomRef = await database.ref(`rooms/${roomCodeClean}`).get();
 
     if (!roomRef.exists()) {
-      alert("A sala não existe");
+      alert("Essa sala não existe ou foi excluída");
       return;
     }
 

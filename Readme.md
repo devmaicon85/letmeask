@@ -60,41 +60,39 @@ Se preferir acesse uma sala já criada: https://letmeask-eta.vercel.app/rooms/-M
 
 ## 📝 Novidades
 
-    Procurei manter o projeto original mas deixá-lo o mais funcional possível. Segue as novidades que implementei em relação ao projeto original.
+- Procurei manter o projeto original mas deixá-lo o mais funcional possível. Segue novidades que implementei em relação ao projeto original.
 
   - LAYOUT
-    - Adicionei Responsividade que era primordial e que aprendi no vídeo do Maikão
-    - Testei em chrome e opera e todos os dispositivos em qualquer tamanho
+    - Adicionei Responsividade que era primordial para esse tipo de projeto, testado em chrome e opera e vários dispositivos.
     - Adicionei styles na pasta respectivo componente (facilitar manutenção)
-    - Adicionei Componente Loading
+    - Adicionei Componente de Loading
     - Adicionei Favicon
-    - Adicionei Page NotFound404 customizada Rocketseat
-    - Adaptei para TSX e SCSS
-    - Adicionei MetaTags na index para exibir logo e breve descrição no compartilhamento
+    - Adicionei Page NotFound404 customizada Rocketseat e Adaptei para TSX e SCSS
+    - Adicionei MetaTags na index para exibir logo e breve descrição no compartilhamento do link.
     - Alterei Cor do Layout e utilizei Variavel de cores (Primary e Secundary, Link)
 
   - PWA
     - Adicionei Manifest
-    - Adicionei Logos varios tamanhos
+    - Adicionei Logos variados tamanhos
     - Adicionei ServiceWork para opção de Instalar APP
 
   - ROOMS
-    - Compartilhei o componente ROOMS com ADMIN (aproveitamento de código)
-    - Rota ROOMS mesma rota Admin/ROOMS (sem necessidade de redirecionamento)
-    - Adicionei quando Admin Encerra a sala - usuários são redirecionados automaticamente
+    - Mesmo componente ROOMS com ADMIN (aproveitamento de código) com mesma rota (sem redirecionamento)
+    - Quando Admin Encerra a sala os usuários são desconectados automaticamente
     - Adicionei nome e avatar do author da sala
     - Adicionei instruções para compartilhar o link da sala
-    - Adicionei opção de compartilhar (no win10 e celular abre compartilhamento padrão)
-    - Adicionei opção de usuário fazer login direto na sala (pra quem acessa via link)
+    - Adicionei opção de compartilhar (abre compartilhamento do dispositivo)
+    - Adicionei opção de usuário fazer login direto na sala (pra quem acessar via link)
     - Adicionei like 👍 para Admin, porque não? =)
-    - Usuários podem acessar por código da sala ou inserindo o link no campo ou apenas acessando o link do admin que é o mesmo
+    - Usuários podem acessar por código da sala ou inserindo o link no campo ou apenas acessando o link que é o mesmo do admin
 
   - QUESTIONS
     - Isolei mais ainda o componente QUESTIONS de ROOMS
     - Altura máxima definida para cada question (pra evitar spammers)
     - Scrool customizado quando ultrapassa altura máxima da question
     - Icones de Opções ampliam e mudam de cor com mouse
-    - Limite de 1000 caracteres com contador para novas questões (pra evitar spammers) e receber perguntas mais objetivas
+    - Adicionei Limite de 1000 caracteres com contador para novas perguntas (evitar spammers) e receber perguntas mais objetivas.
+    - Mínimo 20 caracteres com alerta recomendando enviar apenas perguntas
 
   - OUTROS
     - Adicionei editorconfig

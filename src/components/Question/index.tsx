@@ -8,10 +8,12 @@ import deleteImg from "../../assets/images/delete.svg";
 import check from "../../assets/images/check.svg";
 import answer from "../../assets/images/answer.svg";
 
+// import { BiUserX } from "react-icons/bi";
 
 type QuestionType = {
   id: string;
   author: {
+    id: string;
     name: string;
     avatar: string;
   };
@@ -49,6 +51,7 @@ export function Question({ question, checkIsAdmin, roomId }: QuestionProps) {
     });
   }
 
+  
 
   async function handleDeleteQuestion(questionId: string) {
     if (user?.id === undefined) {
@@ -83,8 +86,16 @@ export function Question({ question, checkIsAdmin, roomId }: QuestionProps) {
 
       <footer>
         <div className="user-info">
-          <img src={question.author.avatar} alt={question.author.name} />
-          <span>{question.author.name}</span>
+          <img src={question?.author?.avatar} alt={question?.author?.name} />
+          <span>{question?.author?.name}</span>
+          {/* {checkIsAdmin && (
+            <button
+              title="Desabilitar usuário"
+              onClick={() => handleDisabledAuthor(question.author.id)}
+            >
+              <BiUserX />
+            </button>
+          )} */}
         </div>
 
         <div className="options">
@@ -111,7 +122,8 @@ export function Question({ question, checkIsAdmin, roomId }: QuestionProps) {
 
               <img
                 src={deleteImg}
-                alt="deletar"
+                alt="Deletar Pergunta"
+                title="Deletar Pergunta"
                 onClick={() => handleDeleteQuestion(question.id)}
               />
             </>
@@ -119,7 +131,8 @@ export function Question({ question, checkIsAdmin, roomId }: QuestionProps) {
 
           <img
             src={likeImg}
-            alt="Like"
+            alt="Like - Votar nessa pergunta"
+            title="Like - Votar nessa pergunta"
             onClick={() => handleLikeQuestion(question.id, question.likeId)}
             className={`${question.likeId ? "liked" : ""}`}
           />
