@@ -1,6 +1,6 @@
 aside {
   // width: 60%;
-  height: 100vh;
+  min-height: 100vh;
 
   flex: 5;
   background-color: var(--primary);
@@ -34,6 +34,8 @@ aside {
 
 @media (max-width: 800px) {
   aside {
+
+    min-height: 30vh;
     padding: 20px;
 
     margin-bottom: 30px;
