@@ -44,63 +44,70 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 - [React](https://reactjs.org)
 - [TypeScript](https://www.typescriptlang.org/)
 - [Firebase](https://firebase.google.com/)
+- [Sass](https://sass-lang.com/)
 
 ## 💻 Projeto
 
-O letmeask é um projeto para Criar salas de Q&A ao vivo e tirar as dúvidas da sua audiência em tempo-real
+O letmeask permite você criar salas de perguntas para tirar as dúvidas da sua audiência. Os usuários podem votar nas perguntas mais interessantes e você como admin pode destacar, excluir e responder as dúvidas mais votadas em lives ou vídeos, por exemplo.
 
 Use agora mesmo:
 
 1. acesse o site https://letmeask-eta.vercel.app
 2. faça o login e crie uma sala com o assunto desejado
-3. compartilhe o link para seus público e aguarde as perguntas
+3. compartilhe o link para seus público e aguarde as perguntas e responda em vídeos ou lives as mais votadas
 
 Se preferir acesse uma sala já criada: https://letmeask-eta.vercel.app/rooms/-Md8slKExuwO6v7rVbWQ
 
 ## 📝 Novidades
 
-    LAYOUT
-        Add Responsividade
-        Add styles na pasta respectivo componente
-        Add Componente Loading
-        Add Favicon
-        Add Page 404 customizada Rocketseat. Adaptado para TSX e SCSS
-        Add Variavel de cores (Primary e Secundary, Link)
+    Procurei manter o projeto original mas deixá-lo o mais funcional possível. Segue as novidades que implementei em relação ao projeto original.
 
-    PWA
-    	Add Manifest
-    	Add Logos tamanho variados
-    	Add ServiceWork com opção de Instalar APP
+  - LAYOUT
+    - Adicionei Responsividade que era primordial e que aprendi no vídeo do Maikão
+    - Testei em chrome e opera e todos os dispositivos em qualquer tamanho
+    - Adicionei styles na pasta respectivo componente (facilitar manutenção)
+    - Adicionei Componente Loading
+    - Adicionei Favicon
+    - Adicionei Page NotFound404 customizada Rocketseat
+    - Adaptei para TSX e SCSS
+    - Adicionei MetaTags na index para exibir logo e breve descrição no compartilhamento
+    - Alterei Cor do Layout e utilizei Variavel de cores (Primary e Secundary, Link)
 
-    ROOMS
-        Componente único de ROOMS compartilhado com ADMIN (aproveitamento de código)
-        Rota ROOMS mesma Sala Admin (sem necessidade de redirecionamento)
-        Quando Admin Encerra a sala - usuários são redirecionados automaticamente
-        Add proteção Room Admin
-        Add nome e avatar do author da sala
-        Add instruções para compartilhar o link da sala
-        Add login na sala
-        Add like 👍 para Admin (porque não?)
+  - PWA
+    - Adicionei Manifest
+    - Adicionei Logos varios tamanhos
+    - Adicionei ServiceWork para opção de Instalar APP
 
-    QUESTIONS
-        Add componente isolado de ROOMS
-        Altura mámima definida para cada question
-        Scrool customizado quando ultrapassa altura maxima
-        Icones de Opções ampliam e mudam de cor com mouse
-        Limit de 1000 caracteres com contador para novas questões
+  - ROOMS
+    - Compartilhei o componente ROOMS com ADMIN (aproveitamento de código)
+    - Rota ROOMS mesma rota Admin/ROOMS (sem necessidade de redirecionamento)
+    - Adicionei quando Admin Encerra a sala - usuários são redirecionados automaticamente
+    - Adicionei nome e avatar do author da sala
+    - Adicionei instruções para compartilhar o link da sala
+    - Adicionei opção de compartilhar (no win10 e celular abre compartilhamento padrão)
+    - Adicionei opção de usuário fazer login direto na sala (pra quem acessa via link)
+    - Adicionei like 👍 para Admin, porque não? =)
+    - Usuários podem acessar por código da sala ou inserindo o link no campo ou apenas acessando o link do admin que é o mesmo
 
-    OUTROS
-        add editorconfig
-        add Prettierrc
-        add componente ASIDE para Home e NewRoom
-        add Hospedagem Vercel
+  - QUESTIONS
+    - Isolei mais ainda o componente QUESTIONS de ROOMS
+    - Altura máxima definida para cada question (pra evitar spammers)
+    - Scrool customizado quando ultrapassa altura máxima da question
+    - Icones de Opções ampliam e mudam de cor com mouse
+    - Limite de 1000 caracteres com contador para novas questões (pra evitar spammers) e receber perguntas mais objetivas
+
+  - OUTROS
+    - Adicionei editorconfig
+    - Adicionei Prettierrc
+    - Adicionei componente ASIDE para Home e NewRoom
+    - Adicionei na Hospedagem Vercel
 
 ## 🔖 Layout
 
-Você pode visualizar o layout do projeto através [desse link](https://www.figma.com/file/u0BQK8rCf2KgzcukdRRCWh/Letmeask/duplicate)É necessário ter conta no [Figma](http://figma.com/) para acessá-lo.
+Você pode visualizar o layout do projeto através [desse link](https://www.figma.com/file/u0BQK8rCf2KgzcukdRRCWh/Letmeask/duplicate) É necessário ter conta no [Figma](http://figma.com/) para acessá-lo.
+
 
 ## 🚀 Como executar
-
 
 - Instale o Node.js
 - Instale o Yarn
